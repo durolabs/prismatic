@@ -1,3 +1,5 @@
+# Duro <> Prismatic Connector
+## Available Actions
 - Raw Request ✔
 - Get Current User ✔
 - Change Orders
