@@ -16,11 +16,9 @@ const listCompanyUsers = action({
     const query = gql`
       query UserById {
         userById {
-          activeLibrary {
-            company {
-              id
-              name
-            }
+          primaryCompany {
+            id
+            name
             users {
               email
               id
@@ -34,10 +32,9 @@ const listCompanyUsers = action({
           }
         }
       }
-
     `;
     const data = await client.request(query)
-    return { data: (data as any).userById.activeLibrary }
+    return { data: (data as any).userById.primaryCompany }
   },
 })
 

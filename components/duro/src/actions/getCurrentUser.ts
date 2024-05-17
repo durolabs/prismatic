@@ -20,11 +20,9 @@ const getCurrentUser = action({
           email
           firstName
           id
-          activeLibrary {
-            company {
-              id
-              name
-            }
+          primaryCompany {
+            id
+            name
           }
         }
       }
