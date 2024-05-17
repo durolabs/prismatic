@@ -1,8 +1,7 @@
-import merge from "lodash.merge";
-import { action, input, util } from '@prismatic-io/spectral';
-import { connectionInput } from '../inputs';
-import { createDuroClient } from "../client";
-import { gql } from "graphql-request";
+import { action, input, util } from '@prismatic-io/spectral'
+import { connectionInput } from '../inputs'
+import { createDuroClient } from '../client'
+import { gql } from 'graphql-request'
 
 const listChangeOrders = action({
   display: {
@@ -18,28 +17,28 @@ const listChangeOrders = action({
       clean: util.types.toString,
       model: [
         {
-          label: "ID: Ascending",
-          value: "[{\"con\": \"asc\"}]",
+          label: 'ID: Ascending',
+          value: '[{"con": "asc"}]',
         },
         {
-          label: "ID: Descending",
-          value: "[{\"con\": \"desc\"}]",
+          label: 'ID: Descending',
+          value: '[{"con": "desc"}]',
         },
         {
-          label: "Last Modified: Ascending",
-          value: "[{\"lastModified\": \"asc\"}]",
+          label: 'Last Modified: Ascending',
+          value: '[{"lastModified": "asc"}]',
         },
         {
-          label: "Last Modified: Descending",
-          value: "[{\"lastModified\": \"desc\"}]",
+          label: 'Last Modified: Descending',
+          value: '[{"lastModified": "desc"}]',
         },
         {
-          label: "Name: Ascending",
-          value: "[{\"name\": \"asc\"}]",
+          label: 'Name: Ascending',
+          value: '[{"name": "asc"}]',
         },
         {
-          label: "Name: Descending",
-          value: "[{\"name\": \"desc\"}]",
+          label: 'Name: Descending',
+          value: '[{"name": "desc"}]',
         },
       ],
     }),
@@ -52,7 +51,7 @@ const listChangeOrders = action({
     }),
   },
   perform: async (context, params) => {
-    const client = createDuroClient(params.connection);
+    const client = createDuroClient(params.connection)
     const query = gql`
       query ChangeOrders($first: Int, $orderBy: [ChangeOrdersOrderByInput]) {
         changeOrders(orderBy: $orderBy) {
@@ -113,8 +112,7 @@ const listChangeOrders = action({
 
     return { data }
   },
-});
-
+})
 
 
 const createChangeOrder = action({
@@ -144,16 +142,16 @@ const createChangeOrder = action({
       default: 'ECO',
       model: [
         {
-          label: "ECO",
-          value: "ECO",
+          label: 'ECO',
+          value: 'ECO',
         },
         {
-          label: "MCO",
-          value: "MCO",
+          label: 'MCO',
+          value: 'MCO',
         },
         {
-          label: "DCO",
-          value: "DCO",
+          label: 'DCO',
+          value: 'DCO',
         },
       ]
     }),
@@ -183,14 +181,14 @@ const createChangeOrder = action({
     `;
     let variables = {
       input: {
-        "name": params.title,
-        "description": params.description,
-        "type": params.coType,
+        name: params.title,
+        description: params.description,
+        type: params.coType,
       }
     }
     const data = await client.request(query, variables)
     return { data }
   },
-});
+})
 
 export default { listChangeOrders, createChangeOrder }

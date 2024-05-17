@@ -1,35 +1,35 @@
-import { connection, input } from "@prismatic-io/spectral";
+import { connection, input } from '@prismatic-io/spectral'
 
 
 const duroEnvironment = input({
-  label: "Duro Environment",
-  placeholder: "Duro Environment",
-  type: "string",
+  label: 'Duro Environment',
+  placeholder: 'Duro Environment',
+  type: 'string',
   required: true,
   model: [
     {
-      label: "Main",
-      value: "https://mfg.duro.app/graphql",
+      label: 'Main',
+      value: 'https://mfg.duro.app/graphql',
     },
     {
-      label: "ITAR",
-      value: "https://gov.duro.us/graphql",
+      label: 'ITAR',
+      value: 'https://gov.duro.us/graphql',
     },
   ],
-});
+})
 
 const apiKey = connection({
-  key: "apiKey",
-  label: "Duro API Key",
+  key: 'apiKey',
+  label: 'Duro API Key',
   inputs: {
     username: {
-      label: "Duro API Key",
-      placeholder: "xxxyyyzzz",
-      type: "string",
+      label: 'Duro API Key',
+      placeholder: 'xxxyyyzzz',
+      type: 'string',
       required: true,
     },
     duroEnvironment,
   },
-});
+})
 
-export default [apiKey];
+export default [apiKey]

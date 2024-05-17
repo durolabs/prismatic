@@ -1,7 +1,7 @@
-import merge from "lodash.merge";
+import merge from 'lodash.merge';
 import { action, input, util } from '@prismatic-io/spectral';
 import { connectionInput } from '../inputs';
-import { createDuroClient } from "../client";
+import { createDuroClient } from '../client';
 import axios from 'axios';
 
 
@@ -38,16 +38,16 @@ const genericRequest = action({
       clean: util.types.toString,
     }),
     variables: input({
-      label: "Variables",
-      type: "string",
+      label: 'Variables',
+      type: 'string',
       required: false,
-      collection: "keyvaluelist",
+      collection: 'keyvaluelist',
       clean: (val: any) => util.types.keyValPairListToObject(val),
     }),
     variablesObject: input({
-      label: "Variables Object",
-      type: "code",
-      language: "json",
+      label: 'Variables Object',
+      type: 'code',
+      language: 'json',
       required: false,
       clean: (value) => (value ? util.types.toObject(value) : {}),
     }),
