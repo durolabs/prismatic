@@ -19,6 +19,7 @@
   "dependencies": {
     "@prismatic-io/spectral": "7.6.8",
     "axios": "^0.27.2",
+    "dotenv": "^16.4.5",
     "graphql": "^16.7.1",
     "graphql-request": "^6.1.0",
     "lodash.merge": "^4.6.2"
