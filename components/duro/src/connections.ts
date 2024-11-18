@@ -13,7 +13,7 @@ const duroEnvironment = input({
     },
     {
       label: 'ITAR',
-      value: 'https://gov.duro.us/graphql',
+      value: 'https://app.govduro.us/graphql',
     },
   ],
 })
